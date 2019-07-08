@@ -37,6 +37,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <style>
 	a { text-decoration: none; }
 </style>
+<a href="bookmark.php">Bookmark</a> | <a href="note.php">Note</a>
+<hr>
 <form action="" method="post">
 	<input type="text" name="link">
 	<input type="submit" value="New site">
