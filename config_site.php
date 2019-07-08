@@ -98,3 +98,5 @@ $site = $stmt->fetch(PDO::FETCH_ASSOC);
 	<textarea name="remove" style="width: 100%;"><?php echo $site['remove'] ?></textarea>
 	<input type="submit" name="submit" value="Option">
 </form>
+<hr>
+<a href="regex.php?slug=<?php echo $_GET['slug'] ?>">Regex</a>
