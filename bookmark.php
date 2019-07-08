@@ -51,20 +51,16 @@ $bms = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style type="text/css">
   a {text-decoration: none;}
-</style>
-<!-- xoa id -->
-<script language="JavaScript" type="text/javascript">
-  function xoa_id(id, title)
-    {
-      if (confirm("Bạn có muốn xóa id '" + title + "'"))
-    {
-      window.location.href = '?xoa_id=' + id;
-    }
+  input[type=submit],
+  textarea {
+    display: block;
+    margin: 10px 0;
+    width: 100%;
   }
-</script>
+</style>
 
 <form action="bookmark.php" method="get">
-  <textarea name="title" style="width:98%;"></textarea>
+  <textarea name="title"></textarea>
   <input type="submit" value="Viết" />
 </form>
 
@@ -79,7 +75,7 @@ if(isset($error)){
 
 foreach ($bms as $bm) {
   ?>
-  <p><font color="red"><strong><a href="javascript:xoa_id('<?php echo $bm['id'] ?>','<?php echo $bm['content'] ?>')"><?php echo $bm['id'] ?></a>.</strong></font> <?php echo nl2br(htmlspecialchars($bm['content'])) ?></p><hr>
+  <p><font color="red"><strong><a href="?xoa_id=<?php echo $bm['id'] ?>" onclick = "if (! confirm('Xoá site?')) { return false; }"><?php echo $bm['id'] ?></a>.</strong></font> <?php echo nl2br(htmlspecialchars($bm['content'])) ?></p><hr>
 
   <?php
 }

@@ -74,7 +74,7 @@ if(isset($_GET['xoa_site'])){
 	<input type="radio" name="flag" value="td"> <b>/tđ</b>
 	<input type="submit" name="submit" value="Replace">
 </form>
-<p><a href="?xoa_site=<?php echo $site['id'] ?>" onclick = "if (! confirm('Xoá site?')) { return false; }">Xoá site</a> | <a href="config_site.php?slug=<?php echo $site['slug'] ?>"></a></p>
+<p><a href="?xoa_site=<?php echo $site['id'] ?>" onclick = "if (! confirm('Xoá site?')) { return false; }">Xoá site</a> | <a href="config_site.php?slug=<?php echo $site['slug'] ?>">Config site</a></p>
 <hr>
 <div style="white-space: nowrap;overflow: auto;">
 <?php

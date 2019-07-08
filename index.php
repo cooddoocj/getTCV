@@ -88,6 +88,8 @@ $site = $stmt->fetch(PDO::FETCH_ASSOC);
 		padding-right: 10px;
 	}
 </style>
+<a href="site.php">Site</a> | <a href="bookmark.php">Bookmark</a> | <a href="note.php">Note</a>
+<hr>
 <form method="post">
 	<input type="hidden" name="id" value="<?php echo $site['id'] ?>">
 	<input type="text" name="link" value="<?php echo $site['slug'] ?>">
