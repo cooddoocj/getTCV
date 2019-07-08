@@ -13,4 +13,8 @@ for ($i = $s; $i <= $e; $i++) {
 	$urls[] = $HOME . '/getTCV.php?link=' . $link . 'chuong-' . $i . '/&slug=' . $slug;
 }
 
-print_r($urls);
+$content = multi_curl($urls);
+$content = str_replace('⊙⊙', '…<br>…<br>…<br><br>', $content);
+
+echo $content;
+echo "s=$s&e=$e";
