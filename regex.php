@@ -38,12 +38,19 @@ if (isset($_GET['xoa_id'])) {
 	exit;
 }
 
-// rỗng trang
-if(isset($_GET['xoa_all'])){ 
-	$stmt = $db->query('TRUNCATE TABLE regex') ;
-	header('Location: regex.php');
+// xóa trang
+if(isset($_GET['xoa_site'])){ 
+	$query = "DELETE FROM site WHERE id = :id";
+	$stmt = $db->prepare($query) ;
+	$stmt->execute(array(':id' => $_GET['xoa_site']));
+
+	$query = "DELETE FROM regex WHERE site_id = :site_id";
+	$stmt = $db->prepare($query) ;
+	$stmt->execute(array(':site_id' => $_GET['xoa_site']));
+
+	header('Location: index.php');
 	exit;
-}
+} 
 
 ?>
 <title>Regex</title>
@@ -67,7 +74,7 @@ if(isset($_GET['xoa_all'])){
 	<input type="radio" name="flag" value="td"> <b>/tđ</b>
 	<input type="submit" name="submit" value="Replace">
 </form>
-<p><a href="?xoa_all" onclick = "if (! confirm('Xoá?')) { return false; }">Xoá code</a></p>
+<p><a href="?xoa_all" onclick = "if (! confirm('Xoá?')) { return false; }">Xoá code</a> | <a href="?xoa_site=<?php echo $site['id'] ?>" onclick = "if (! confirm('Xoá site?')) { return false; }">Xoá site</a></p>
 <hr>
 <div style="white-space: nowrap;overflow: auto;">
 <?php
