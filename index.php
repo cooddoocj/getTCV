@@ -88,8 +88,6 @@ $site = $stmt->fetch(PDO::FETCH_ASSOC);
 		padding-right: 10px;
 	}
 </style>
-<a href="site.php">Site</a> | <a href="bookmark.php">Bookmark</a> | <a href="note.php">Note</a>
-<hr>
 <form method="post">
 	<input type="hidden" name="id" value="<?php echo $site['id'] ?>">
 	<input type="text" name="link" value="<?php echo $site['slug'] ?>">
@@ -100,3 +98,7 @@ $site = $stmt->fetch(PDO::FETCH_ASSOC);
 	<textarea name="remove" style="width: 100%;"><?php echo $site['remove'] ?></textarea>
 	<input type="submit" name="submit" value="Option">
 </form>
+<hr>
+<a href="regex.php?slug=<?php echo $site['slug'] ?>">Regex</a>
+<hr>
+<a href="site.php">Site</a> | <a href="bookmark.php">Bookmark</a> | <a href="note.php">Note</a>
